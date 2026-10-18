@@ -1,0 +1,15 @@
+(() => {
+const documents=[
+{id:'acta',title:'Acta de entrega · Cuatro cajas',ref:'MND / DEP / 1998 · Copia del expediente',body:'Tras la suspensión de la expedición de Corisco y los Elobeyes se anuncia la entrega de CUATRO cajas de materiales y documentación.\n\nLa firma al pie acredita la recepción de bultos. No se incorpora un inventario individual de objetos. La copia no identifica el contenido de cada caja.\n\nNo permite afirmar que el bastón 017 estuviera entre los materiales recibidos.'},
+{id:'libro',title:'Libro de movimientos · Tres entradas',ref:'Depósito ministerial · Extracto de recepción',body:'Recepción posterior a la suspensión de la expedición:\nC-1 · Documentación y cuadernos.\nC-2 · Materiales embalados, sin relación adjunta.\nC-3 · Materiales embalados, sin relación adjunta.\n\nEl libro contiene TRES entradas. No consta una entrada para C-4 en este extracto. Esto no prueba que saliera del país ni que fuera sustraída.'},
+{id:'foto',title:'Fotografía del almacén · C-4',ref:'Copia incorporada al expediente · Sin fecha precisa',body:'En una fotografía de preparación del almacén se distinguen cuatro cajas. Una etiqueta permite leer C-4.\n\nLa imagen muestra bultos cerrados: no se ve el bastón ni se puede determinar qué contienen. La presencia de una caja en una fotografía no acredita su recepción posterior.'},
+{id:'nota',title:'Anotación al margen · Caja de estudio',ref:'Hoja suelta junto al acta · Sin firma',body:'«Caja de estudio separada antes de la entrega. C-4. Consultar al encargado».\n\nLa anotación no está firmada ni fechada. Es un indicio para buscar otra fuente, no una autorización de traslado ni una prueba del contenido de la caja.'}
+];
+const links=[
+{id:'cuentas',title:'Cuatro cajas anunciadas → tres registradas',question:'¿Qué podemos afirmar al comparar los dos registros?',evidence:['acta','libro'],level:'acreditado',explanation:'El acta anuncia cuatro bultos y el libro recoge tres entradas. La discrepancia está documentada; no explica por sí sola su causa.'},
+{id:'separada',title:'Caja C-4 → separada antes de la entrega',question:'¿Qué valor tiene la anotación encontrada?',evidence:['nota'],level:'indicio',explanation:'La nota apunta a una separación, pero carece de firma y fecha. Necesitamos contrastarla con el encargado u otro registro.'},
+{id:'baston',title:'Bastón COR-98 · 017 → caja C-4',question:'¿Podemos vincular el bastón con el contenido de esta caja?',evidence:['foto'],level:'desconocido',explanation:'La fotografía identifica C-4 pero muestra la caja cerrada. Ningún documento examinado sitúa el bastón en su interior.'}
+];
+function validate(id,evidence,level){const link=links.find(x=>x.id===id);return !!link&&level===link.level&&evidence.length===link.evidence.length&&link.evidence.every(x=>evidence.includes(x));}
+window.Custody={documents,links,validate};
+})();

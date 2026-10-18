@@ -1143,7 +1143,7 @@ function restartMission() {
     return;
   }
   try {
-    const keys = ['mandji-scene2-v1','mandji-plan-v1','mandji-leader-v1','mandji-map-puzzle-v1','mandji-email-v1','mandji-riddles-v1','mandji-collection-v1','mandji-photo-puzzle-v2','mandji-active-minutes-v2','mandji-fictional-hours-v3','mandji-mission-deadline-v1','mandji-search3-v1','mandji-cultural-trail-v1','mandji-bata-map-v1','mandji-travel-bata-v1','mandji-scene3-v1','mandji-exhibition-v1'];
+    const keys = ['mandji-scene4-v1','mandji-scene2-v1','mandji-plan-v1','mandji-leader-v1','mandji-map-puzzle-v1','mandji-email-v1','mandji-riddles-v1','mandji-collection-v1','mandji-photo-puzzle-v2','mandji-active-minutes-v2','mandji-fictional-hours-v3','mandji-mission-deadline-v1','mandji-search3-v1','mandji-cultural-trail-v1','mandji-bata-map-v1','mandji-travel-bata-v1','mandji-scene3-v1','mandji-exhibition-v1'];
     for (let i=0;i<window.mandjiStorage.length;i++) {
       const key=window.mandjiStorage.key(i);
       if (key?.startsWith('mandji-pauses-scene-')) keys.push(key);

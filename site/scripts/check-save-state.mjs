@@ -14,7 +14,7 @@ const storage = seed => {
   };
 };
 const thirdChapter = ['mandji-search3-v1', 'mandji-cultural-trail-v1', 'mandji-bata-map-v1', 'mandji-travel-bata-v1', 'mandji-scene3-v1'];
-const campaign = ['mandji-scene2-v1', 'mandji-plan-v1', 'mandji-leader-v1', 'mandji-map-puzzle-v1', 'mandji-email-v1', 'mandji-riddles-v1', 'mandji-photo-puzzle-v2', 'mandji-active-minutes-v2', 'mandji-fictional-hours-v3', 'mandji-mission-deadline-v1', 'mandji-exhibition-v1', 'mandji-pauses-scene-1', 'mandji-pauses-scene-2', ...thirdChapter];
+const campaign = ['mandji-scene4-v1','mandji-scene2-v1', 'mandji-plan-v1', 'mandji-leader-v1', 'mandji-map-puzzle-v1', 'mandji-email-v1', 'mandji-riddles-v1', 'mandji-photo-puzzle-v2', 'mandji-active-minutes-v2', 'mandji-fictional-hours-v3', 'mandji-mission-deadline-v1', 'mandji-exhibition-v1', 'mandji-pauses-scene-1', 'mandji-pauses-scene-2', ...thirdChapter];
 const seed = Object.fromEntries(campaign.map(key => [key, '{"complete":true,"stage":3,"paid":true}']));
 seed['mandji-leader-v1'] = '{"id":"adrian","budget":19100}';
 seed['mandji-collection-v1'] = JSON.stringify({clues: [{id:'one',mission:1},{id:'three',mission:3}],objects:[{id:'kit-linterna'}]});
@@ -35,14 +35,15 @@ for (const confirmed of [false, true]) {
 }
 
 const replayScript = fs.readFileSync(new URL('../replay-state.js', import.meta.url), 'utf8');
-for (const mission of [2,3]) {
+for (const mission of [2,3,4]) {
   const real=storage({...seed,...preferences}), session=storage({});
   const before=real.snapshot();
   const context={window:{localStorage:real,addEventListener(){}},sessionStorage:session,location:{pathname:'/capitulos.html'},document:{addEventListener(){}}};
   vm.runInNewContext(replayScript,context);
   context.window.startMissionReplay(mission);
   const copy=JSON.parse(session.getItem('mandji-replay-session-v1')).values;
-  for (const key of thirdChapter) assert.equal(copy[key],undefined,`Repetir ${mission}: ${key} debe comenzar vacío`);
+  assert.equal(copy['mandji-scene4-v1'],undefined,'La repetición debe limpiar IV');
+  for (const key of mission===4?[]:thirdChapter) assert.equal(copy[key],undefined,`Repetir ${mission}: ${key} debe comenzar vacío`);
   assert.equal(copy['mandji-fictional-hours-v3'],'604800000');
   assert.equal(copy['mandji-leader-v1'],seed['mandji-leader-v1']);
   assert.deepEqual(real.snapshot(),before,'La repetición no puede alterar la partida original');
@@ -55,4 +56,4 @@ for (const mission of [2,3]) {
   assert.equal(session.getItem('mandji-replay-session-v1'),null);
   assert.equal(context.window.mandjiStorage,real);
 }
-console.log('OK: reinicio, cancelación, preferencias, repetición II/III, mapa, recursos y aislamiento del original.');
+console.log('OK: reinicio, cancelación, preferencias, repetición II/III/IV, mapa, recursos y aislamiento del original.');
