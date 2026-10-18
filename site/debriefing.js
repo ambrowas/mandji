@@ -16,13 +16,7 @@ if(trail.complete&&new URLSearchParams(location.search).get('hallazgo')==='direc
  {name:'Lucía Nvé García',text:'¡Tenemos una dirección! El artículo sobre los comienzos de la revista sitúa las primeras oficinas y el archivo en la vivienda de Daniel en el patio de Mama Buna, en Covadonga, Bata.'},
  {name:'Christian Dougan Makosso',text:'La referencia es de 2008 y Daniel falleció en 2013. La dirección nos da una pista, pero no demuestra que sus documentos sigan en esa vivienda.'}
  ],()=>{ 
- M.button('ORGANIZAR EL DESPLAZAMIENTO',()=>{
- M.show('Viaje a Covadonga, Bata');
- if(M.read('mandji-travel-bata-v1',null)?.paid){M.paragraph('El traslado ya está pagado.');M.button('CONTINUAR LA VISITA',()=>location.href='escena3.html');return;}
- M.paragraph('Visitaremos la antigua vivienda de Daniel para preguntar por sus archivos. Traslado del equipo: 900 € y 4 horas de misión. Solo se descuentan al confirmar.');
- M.button('CONFIRMAR VIAJE · 900 € Y 4 HORAS',()=>{if(M.read('mandji-travel-bata-v1',null)?.paid){location.href='escena3.html';return;}if(!M.spend(900,4)){M.insufficient();return;}window.mandjiStorage.setItem('mandji-travel-bata-v1',JSON.stringify({paid:true,cost:900,hours:4}));M.collect('viaje-bata-3','Viaje a Covadonga, Bata','Traslado del equipo: 900 € y 4 horas de misión.',3);location.href='escena3.html';});
- M.button('VOLVER A LA REUNIÓN',()=>M.dialog.close());
- },host);
+ M.button('LOCALIZAR MAMA BUNA Y LA OFICINA EN EL MAPA',()=>location.href='control.html',host);
  });return;
 }
 const destinationKnown=trail.complete===true&&trail.source==='07';
