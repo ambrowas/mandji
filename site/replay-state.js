@@ -15,8 +15,8 @@ window.startMissionReplay=mission=>{
 const values={};for(let i=0;i<real.length;i++){const k=real.key(i);if(k.startsWith('mandji-'))values[k]=real.getItem(k);}
 const remove=keys=>keys.forEach(k=>delete values[k]);
 if(mission===1)remove(['mandji-leader-v1','mandji-plan-v1','mandji-map-puzzle-v1','mandji-email-v1','mandji-riddles-v1','mandji-photo-puzzle-v2','mandji-pauses-scene-1']);
-if(mission===2)remove(['mandji-scene2-v1','mandji-cultural-trail-v1','mandji-search3-v1','mandji-travel-bata-v1','mandji-scene3-v1']);
-if(mission===3)remove(['mandji-exhibition-v1','mandji-scene3-v1','mandji-cultural-trail-v1','mandji-search3-v1','mandji-travel-bata-v1']);
+if(mission===2)remove(['mandji-scene2-v1','mandji-cultural-trail-v1','mandji-search3-v1','mandji-bata-map-v1','mandji-travel-bata-v1','mandji-scene3-v1']);
+if(mission===3)remove(['mandji-exhibition-v1','mandji-scene3-v1','mandji-cultural-trail-v1','mandji-search3-v1','mandji-bata-map-v1','mandji-travel-bata-v1']);
 let collection;try{collection=JSON.parse(values['mandji-collection-v1']);}catch{}
 if(collection){collection.clues=(collection.clues||[]).filter(c=>(c.mission||1)!==mission);values['mandji-collection-v1']=JSON.stringify(collection);}
 values['mandji-fictional-hours-v3']='604800000';

@@ -1,5 +1,7 @@
 # Estado y revisión — 18 de octubre de 2026
 
+Actualización: los dos fallos de guardado descritos abajo han sido corregidos. Se completó el recorrido principal I–III con André y se verificaron reinicio y repetición en navegador. Véase PRUEBA_GUARDADO_Y_RECORRIDO.md. El resto de este documento conserva la revisión previa como antecedente.
+
 ## Recuperación y conservación
 - Fuente de Sites v181 recuperada en el espacio de trabajo local.
 - Commit de origen comprobado: 8acaa4673aa7f4c113ccc5ab3a24abf763ef0d6f.
