@@ -2,7 +2,13 @@
 function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
 const scene=read('mandji-scene2-v1'),leader=read('mandji-leader-v1');
 const unlocked=!!scene||['adrian','luna','sebastian'].includes(leader?.id);
-document.querySelector('#chapter-two').hidden=!unlocked;
+const secondCard=document.querySelector('#chapter-two');
+secondCard.hidden=false;
+if(!unlocked){
+secondCard.removeAttribute('href');secondCard.setAttribute('aria-disabled','true');secondCard.classList.add('locked');
+document.querySelector('#status-two').textContent='Bloqueado';
+secondCard.querySelector('strong').textContent='Elige un líder en el capítulo I para continuar';
+}
 document.querySelector('#status-one').textContent=unlocked?'Anterior':'Actual';
 const travel=read('mandji-travel-bata-v1'),third=read('mandji-scene3-v1');
 const thirdCard=document.querySelector('#chapter-three');
