@@ -1,0 +1,21 @@
+(() => {
+const topics=[
+{id:'vio',question:'¿Qué trabajo realizó usted con las cajas?',answer:'Numeré cuatro cajas y vi C-4 separada junto a la mesa de estudio antes de registrar las otras tres en el depósito. No abrí C-4 y no vi el bastón dentro.',kind:'directa',why:'Describe tareas que realizó y una situación que presenció; también reconoce lo que no vio.'},
+{id:'oyo',question:'¿Qué sabía del destino de C-4?',answer:'Un compañero me dijo que se preparaba un envío aéreo para un laboratorio en España. Yo no estuve en la entrega al transportista ni recibí un acuse del laboratorio.',kind:'referida',why:'El destino procede de lo que le contó otra persona. Es una pista de búsqueda, no un traslado confirmado.'},
+{id:'deduce',question:'¿Quién autorizó el traslado?',answer:'Supongo que alguien de la coordinación debió autorizarlo. No presencié una orden ni he visto la firma. No puedo identificar a la persona responsable.',kind:'deduccion',why:'Es una suposición del testigo. No permite atribuir una autorización ni responsabilidad.'}
+];
+const documents=[
+{id:'testimonio',title:'Entrevista · Declaración del encargado',ref:'TEM-04 · Transcripción revisada con el testigo',body:topics.map(t=>t.question+'\n«'+t.answer+'»').join('\n\n')+'\n\nEl testigo permite conservar una copia de su declaración. La identidad se registra según el acuerdo de la entrevista.'},
+{id:'embalaje',title:'Hoja de embalaje · C-4 y registro 017',ref:'Copia personal facilitada con permiso · Pendiente de cotejo con el original',body:'Referencia de preparación: C-4.\nRegistro 017: bastón con remate zoomorfo, collar y tres grapas.\nReferencia prevista de envío: MBO-98/41.\nDestino anotado: laboratorio de estudio, España. Sin institución identificada.\n\nLa copia asocia el registro 017 con C-4 en la preparación de embalaje. No contiene firma de autorización, entrega al transportista ni recepción en destino. Debe cotejarse con el original.'},
+{id:'resguardo',title:'Ficha de preparación · MBO-98/41',ref:'Copia del archivo personal · Reserva de expedición',body:'Preparación logística: referencia MBO-98/41. Bulto C-4. Modalidad prevista: carga aérea.\nEstado: pendiente de entrega. Casilla de recepción del transportista: sin firma.\n\nEsta ficha permite solicitar antecedentes del envío previsto. No acredita embarque, salida del país ni recepción en España.'}
+];
+const revised=[
+{id:'baston',title:'Registro 017 → embalaje de C-4',question:'¿Qué establece la copia de la hoja de embalaje?',evidence:['embalaje'],level:'indicio',explanation:'La copia vincula el registro 017 con C-4 en la preparación del embalaje. Al no estar cotejada con el original ni acreditar la entrega, es un indicio documental, no una custodia física confirmada.'},
+{id:'envio',title:'Caja C-4 → referencia MBO-98/41',question:'¿Qué permite investigar la ficha de preparación?',evidence:['resguardo'],level:'acreditado',explanation:'La ficha examinada consigna C-4 y MBO-98/41. Está documentada la referencia de preparación; no está acreditada la ejecución del envío.'},
+{id:'autoriza',title:'Autorización de salida → responsable',question:'¿La declaración identifica quién autorizó la salida?',evidence:['testimonio'],level:'desconocido',explanation:'El encargado reconoce que solo supone una intervención de la coordinación. No vio ninguna orden y las copias no contienen una autorización firmada.'}
+];
+const separated={id:'separada',title:'Caja C-4 → separada antes de la entrega',question:'¿Cómo se contrastan la nota y el recuerdo del encargado?',evidence:['nota','testimonio'],level:'indicio',explanation:'La nota y la declaración coinciden en que C-4 fue separada. El testigo lo sitúa antes de registrar tres cajas, pero no examinó su contenido ni vio su entrega al transportista. La reconstrucción necesita cotejo con otros registros.'};
+function attach(C,state){if(!state.evidence)return;if(!C.documents.some(d=>d.id==='embalaje')){C.documents.push(...documents);const i=C.links.findIndex(l=>l.id==='baston');C.links.splice(i,1,revised[0]);C.links.splice(C.links.findIndex(l=>l.id==='separada'),1,separated);C.links.push(...revised.slice(1));}}
+function classified(answers){return topics.every(t=>answers[t.id]===t.kind);}
+window.CustodyInterview={topics,documents,revised,attach,classified};
+})();

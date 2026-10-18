@@ -25,7 +25,7 @@ if(scene?.matched&&scene?.ordered&&scene?.checked&&!travel?.paid){document.query
 const fourth=read('mandji-scene4-v1'),fourthCard=document.querySelector('#chapter-four');
 const fourthUnlocked=!!third?.complete;
 if(!fourthUnlocked){fourthCard.removeAttribute('href');fourthCard.setAttribute('aria-disabled','true');fourthCard.classList.add('locked');document.querySelector('#status-four').textContent='Bloqueado';fourthCard.querySelector('strong').textContent='Redacta el informe de Bata en el capítulo III para continuar';}
-if(fourth?.complete&&fourthUnlocked)document.querySelector('#status-four').textContent='Archivo revisado';
+if(fourth?.complete&&fourthUnlocked)document.querySelector('#status-four').textContent=fourth.interview?.completed?'Entrevista incorporada':'Archivo revisado';
 const activeCard=fourthUnlocked?fourthCard:chapterThreeUnlocked?thirdCard:unlocked?document.querySelector('#chapter-two'):document.querySelector('.chapter');
 activeCard.classList.add('active-chapter');
 activeCard.setAttribute('aria-current','step');

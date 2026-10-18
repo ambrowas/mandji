@@ -16,6 +16,7 @@ const storage = seed => {
 const thirdChapter = ['mandji-search3-v1', 'mandji-cultural-trail-v1', 'mandji-bata-map-v1', 'mandji-travel-bata-v1', 'mandji-scene3-v1'];
 const campaign = ['mandji-scene4-v1','mandji-scene2-v1', 'mandji-plan-v1', 'mandji-leader-v1', 'mandji-map-puzzle-v1', 'mandji-email-v1', 'mandji-riddles-v1', 'mandji-photo-puzzle-v2', 'mandji-active-minutes-v2', 'mandji-fictional-hours-v3', 'mandji-mission-deadline-v1', 'mandji-exhibition-v1', 'mandji-pauses-scene-1', 'mandji-pauses-scene-2', ...thirdChapter];
 const seed = Object.fromEntries(campaign.map(key => [key, '{"complete":true,"stage":3,"paid":true}']));
+seed['mandji-scene4-v1']=JSON.stringify({complete:true,interview:{started:true,evidence:true,completed:true,privacy:'reservada',answers:{vio:'directa'}}});
 seed['mandji-leader-v1'] = '{"id":"adrian","budget":19100}';
 seed['mandji-collection-v1'] = JSON.stringify({clues: [{id:'one',mission:1},{id:'three',mission:3}],objects:[{id:'kit-linterna'}]});
 const preferences = {'mandji-music':'{"enabled":false}', 'mandji-effects':'{"volume":0.2}', 'other-app':'keep'};
