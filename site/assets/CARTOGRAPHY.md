@@ -1,0 +1,1 @@
+Map and cropped sketch derived from “Corsico Bay with borders (labelled).svg”, FB, 2022. Source: https://commons.wikimedia.org/wiki/File:Corsico_Bay_with_borders_(labelled).svg . Labels removed and view cropped. Licensed CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/ . These cropped adaptations are distributed under the same license.

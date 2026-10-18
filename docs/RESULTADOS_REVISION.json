@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-18",
+  "sourceCommit": "8acaa4673aa7f4c113ccc5ab3a24abf763ef0d6f",
+  "checks": [
+    "Sintaxis de todos los scripts: correcta",
+    {
+      "htmlReferences": "Sin archivos locales ausentes"
+    },
+    "Recursos: viaje de 900 € y 4 h correcto; saldo insuficiente no descuenta",
+    "Repetición III: original protegido; confirmado que conserva el mapa resuelto (pendiente)",
+    "Construcción aislada y sintaxis del Worker generado: correctas"
+  ]
+}

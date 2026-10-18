@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es">
-  <head>
+  <head><script src="replay-state.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Capitulo 1: La Mision | El Legado de Mandji</title>
@@ -21,18 +21,19 @@
           <div class="typing-lines" aria-live="polite">
             <p class="typing-line" data-text="Malabo, 25 de Junio de 2020"></p>
             <p class="typing-line" data-text="09:35"></p>
-            <p class="typing-line" data-text="Iniciativas Elebi"></p>
-            <p class="typing-line" data-text="Sede Global"></p>
+            <p class="typing-line" data-text="TORRES ELEBI"></p>
+            <p class="typing-line" data-text="AVENIDA HASSAN II, SEDE GLOBAL"></p>
           </div>
           <button class="skip-intro" type="button" data-skip-intro>Entrar</button>
         </div>
       </section>
 
-      <section class="chapter-room is-hidden" id="chapter-room" aria-label="Sala de reuniones interactiva">
+      <section class="chapter-room is-hidden" id="chapter-room" data-scene-number="1" aria-label="Sala de reuniones interactiva">
         <img src="./assets/chapter-1-meeting.png" alt="" class="chapter-room-image" />
         <div class="chapter-vignette"></div>
+        <div class="room-decoration-layer"><button class="muni-photo" type="button" aria-label="Ampliar fotografía del estuario del río Muni"><img src="./assets/muni-estuary.webp" alt="Recreación del estuario del río Muni" /></button></div>
 
-        <a class="room-home-link" href="./index.html">Menu</a>
+        <div class="mission-topbar"><a class="room-home-link" href="./index.html">Menú</a><div class="mission-countdown" role="timer" aria-label="Tiempo de investigación restante" aria-live="off"><span>Investigación</span><strong id="mission-time">168 h 00 min</strong><small>Tiempo ficticio · 1 min real = 24 min de misión</small></div><button type="button" class="mission-control" data-game-pause>PAUSA · 2/2</button><button type="button" class="mission-control" data-game-restart>REINICIAR</button></div>
 
         <div class="audio-controls" aria-label="Controles de audio y dialogo">
           <button type="button" data-audio-toggle>Pause</button>
@@ -55,22 +56,16 @@
         <button class="hotspot hotspot-luna" type="button" data-context="luna" aria-label="Lucía Nvé García"></button>
         <button class="hotspot hotspot-sebastian" type="button" data-context="sebastian" aria-label="Christian Dougan Makosso"></button>
         <button class="hotspot hotspot-dossier needs-attention" type="button" data-context="dossier" aria-label="Dossier de la mision"></button>
-        <button class="hotspot hotspot-map" type="button" data-context="isla-mapa" aria-label="Isla de Corisco en el mapa de pared"></button>
+        <div class="desk-computer" aria-hidden="true"><div class="laptop-lid"><i class="laptop-camera"></i><div class="laptop-display"><small>INICIATIVAS ELEBI</small><span class="laptop-envelope">✉</span><span>Comunicación segura</span><b>MENSAJE RECIBIDO</b></div><small class="laptop-brand">ELEBI</small></div><div class="laptop-base"><div class="laptop-keys"></div><div class="laptop-trackpad"></div></div></div><button class="hotspot hotspot-map" type="button" data-context="isla-mapa" aria-label="Ordenador: correo cifrado"></button>
         <button class="hotspot hotspot-reference-photo" type="button" data-context="foto-sala" aria-label="Fotografia de referencia"></button>
 
-        <section class="map-zoom-overlay is-hidden" id="map-zoom-overlay" aria-label="Aproximacion al Golfo de Guinea">
-          <div class="map-zoom-card">
-            <div class="map-zoom-grid">
-              <span class="coast coast-africa"></span>
-              <span class="island island-bioko"></span>
-              <span class="island island-mandji"></span>
-              <span class="island island-elobey"></span>
-              <span class="scan-ring ring-one"></span>
-              <span class="scan-ring ring-two"></span>
-              <span class="map-label label-gulf">Golfo de Guinea</span>
-              <span class="map-label label-mandji">Mandji / Corisco</span>
-            </div>
-          </div>
+        <section class="map-zoom-overlay is-hidden" id="map-zoom-overlay" aria-label="Correo confidencial">
+          <button class="map-manual-close" type="button" data-map-close>CERRAR</button>
+          <div class="map-zoom-card email-challenge mail-terminal">
+            <div class="terminal-top"><span>▣ ELEBI · CORREO SEGURO</span><span>● Conectado</span></div>
+            <div class="mail-shell"><aside class="mail-sidebar"><b>✉ Correo</b><p class="mail-selected">Bandeja de entrada <b>1</b></p><p>Enviados</p><p>Archivo</p></aside><div class="mail-main">
+            <header class="mail-heading"><small>MENSAJE RECIBIDO · CONFIDENCIAL</small><h2>🔒 Correo protegido</h2><p><b>De:</b> Enlace gubernamental<br><b>Para:</b> Equipo de investigación · Elebi</p></header>
+            <section id="cipher-workspace"><div class="cipher-notice"><b>Correo descifrado · Acceso protegido</b><p>Nuestro hacker ha conseguido desencriptar el contenido del email sobre la subasta que nos ha llegado. Para acceder a él, usa la contraseña que se describe abajo.</p></div><div class="cipher-hint"><b>Pista del hacker</b><p>«La fecha de la víspera de la independencia de nuestro país».</p><small>Formato: DDMMAAAA · sin espacios ni barras</small></div><label for="mail-password">Contraseña</label><input id="mail-password" type="password" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" autocomplete="off" aria-describedby="cipher-status" placeholder="••••••••"><div class="mail-keypad" aria-label="Teclado numérico"><button type="button" data-mail-digit="1">1</button><button type="button" data-mail-digit="2">2</button><button type="button" data-mail-digit="3">3</button><button type="button" data-mail-digit="4">4</button><button type="button" data-mail-digit="5">5</button><button type="button" data-mail-digit="6">6</button><button type="button" data-mail-digit="7">7</button><button type="button" data-mail-digit="8">8</button><button type="button" data-mail-digit="9">9</button><button type="button" data-mail-clear>BORRAR</button><button type="button" data-mail-digit="0">0</button><button type="button" data-mail-back aria-label="Borrar último dígito">⌫</button><button type="button" id="mail-enter" disabled>ENTER ↵</button><button type="button" id="mail-escape">ESC · VOLVER</button></div><p id="cipher-status" role="status">Introduce una fecha de ocho dígitos.</p><button type="button" id="cipher-open" disabled>ABRIR CORREO</button></section><article id="decoded-email" hidden></article></div></div></div>
         </section>
 
         <button class="leader-button is-hidden" type="button" data-leader-button disabled>
@@ -88,12 +83,12 @@
         <section class="folder-overlay is-hidden" id="folder-overlay" aria-label="Expediente MND-01">
           <button class="context-close folder-close" type="button" data-folder-close aria-label="Cerrar expediente">×</button>
           <div class="folder-stage">
-            <div class="folder-back"></div>
+            <h2 class="folder-index-title">Expediente MND-01</h2><p>Documentos disponibles</p>
             <div class="folder-pages" id="folder-pages"></div>
-            <div class="folder-front"></div>
+            
           </div>
           <aside class="document-reader" id="document-reader" aria-live="polite">
-            <p class="eyebrow" id="document-kicker">Expediente</p>
+            <nav class="document-navigation" aria-label="Recorrer documentos"><button type="button" data-doc-prev aria-label="Documento anterior">← Anterior</button><span id="document-position" aria-live="polite">1 / 5</span><button type="button" data-doc-next aria-label="Documento siguiente">Siguiente →</button></nav><p class="eyebrow" id="document-kicker">Expediente</p>
             <h2 id="document-title">Dossier MND-01</h2>
             <div class="document-visual" id="document-visual"></div>
             <p id="document-body">
@@ -111,6 +106,41 @@
       </section>
     </main>
 
+    <dialog id="photo-dialog" aria-labelledby="photo-view-title">
+      <header class="photo-view-header"><div><p class="eyebrow">Inspección de evidencia</p><h2 id="photo-view-title">Fotografía de referencia</h2></div><button type="button" data-photo-close aria-label="Cerrar fotografía">×</button></header>
+      <p id="puzzle-help">Reconstruye la fotografía del anuncio. Pulsa dos piezas para intercambiarlas.</p>
+      <div id="photo-puzzle" class="photo-puzzle" role="group" aria-label="Puzle de fotografía de nueve piezas"></div>
+      <p id="photo-note" aria-live="polite"></p>
+      <div id="inscription-detail" class="inscription-detail" hidden><p>Detalle de la fotografía actual</p><strong>Reparación antigua</strong><p>Tres grapas metálicas cruzan una grieta en la unión de la empuñadura y el asta. Este detalle podrá compararse con otras fotografías; no demuestra por sí solo la procedencia.</p></div>
+    </dialog>
+    <dialog id="game-pause-dialog" class="collection-dialog" aria-labelledby="pause-title"><h2 id="pause-title">Partida en pausa</h2><p>El tiempo está detenido.</p><button type="button" data-game-resume>CONTINUAR</button></dialog>
+    <dialog id="muni-dialog" aria-labelledby="muni-title">
+      <form method="dialog"><button class="muni-close" aria-label="Cerrar fotografía">CERRAR</button></form>
+      <img src="./assets/muni-estuary.webp" alt="Recreación visual de un amplio estuario rodeado de manglares tropicales" />
+      <h2 id="muni-title">Desembocadura y estuario del río Muni</h2>
+      <p>Uno de los lugares más bonitos y ricos en biodiversidad del mundo.</p>
+      <small>Recreación artística</small>
+    </dialog>
+    <script src="./room-decoration.js"></script>
+    <dialog id="preparation-dialog" aria-labelledby="preparation-title"><button type="button" class="preparation-close" aria-label="Cerrar informe de misión" title="Cerrar sin avanzar">×</button><form>
+      <p class="eyebrow">Cierre del capítulo 1 · Reloj detenido</p><h2 id="preparation-title">Informe de misión</h2>
+      <nav class="preparation-steps" aria-label="Secciones"><button type="button" data-prep-step="0">1. Informe</button><button type="button" data-prep-step="1">2. Personajes</button><button type="button" data-prep-step="2">3. Recursos</button></nav>
+      <section data-prep-panel="0" class="internal-report">
+        <header><span>INICIATIVAS ELEBI · USO INTERNO</span><h3>Informe de situación 01</h3><p><b>Para:</b> Dirección de Iniciativas Elebi<br><b>De:</b> Equipo de investigación<br><b>Referencia:</b> MND-01 · 25 de junio de 2020</p></header>
+        <h4>1. Origen del aviso</h4><p>Un coleccionista africano que colabora con gobiernos africanos en la restitución de patrimonio sustraído recibió una invitación privada y la reenvió a un contacto dentro del Gobierno. Su identidad permanece reservada. El Gobierno consideró que un bastón de posible gran importancia histórica justificaba abrir esta investigación y encargó las comprobaciones a Elebi.</p>
+        <h4>2. Material examinado</h4><p>El equipo descifró la comunicación y reconstruyó la fotografía actual adjunta al catálogo. No disponemos todavía de fotografías antiguas ni de inventarios originales. La imagen muestra una reparación singular: tres grapas en la unión de la empuñadura y el asta. Puede servir para comparar imágenes futuras, pero no acredita el origen ni una sustracción.</p>
+        <h4>3. Condiciones de la subasta</h4><p>La colección se ofrece como conjunto indivisible por 27.000.000 USD. La subasta en línea se celebrará el 2 de julio de 2020, dentro de una semana. Los participantes autorizados que hayan abonado un depósito de garantía de 1.000.000 USD recibirán la dirección y la clave una hora antes. El depósito se descontará del precio de adjudicación. Elebi no ha realizado ningún pago.</p>
+        <h4>4. Próximas actuaciones</h4><p>Debemos solicitar al contacto los antecedentes que sustentan su sospecha y contrastar la procedencia comercial con documentos originales. La ubicación del hallazgo y el itinerario del bastón siguen sin determinarse. El destino y el reparto del equipo se decidirán tras el siguiente briefing.</p>
+        <footer>Equipo de investigación · Iniciativas Elebi<br>Informe preliminar para la Dirección · Expediente MND-01</footer>
+      </section>
+      <section data-prep-panel="1" hidden><h3>Personajes</h3><p>Asigna una identidad operativa a cada miembro del equipo.</p><div data-aliases></div><button type="submit">GUARDAR NOMBRES EN CLAVE</button><p data-alias-status role="status"></p></section>
+      <section data-prep-panel="2" hidden><h3>Recursos disponibles</h3><div data-plan-summary class="resource-dashboard"></div><div data-special-equipment class="special-equipment"></div><div class="resource-access"><button type="button" data-prep-collection="objects">🎒 MOCHILA</button><button type="button" data-prep-collection="clues">💾 DISCO DURO</button></div><p>Equipo inicial facilitado por Elebi, sin coste: linterna, lupa y cuaderno de campo. Los documentos y pistas descubiertos están en el disco duro.</p><div class="transition-actions"><button type="button" data-next-briefing>PASAR A LA SIGUIENTE MISIÓN</button><a href="./index.html" class="transition-menu">MENÚ PRINCIPAL</a><button type="button" data-prep-restart>REINICIAR MISIÓN ANTERIOR</button></div><p data-next-status role="status"></p></section>
+      <p data-plan-error role="alert"></p><footer class="preparation-navigation"><button type="button" data-prep-back>ANTERIOR</button><span data-prep-position aria-live="polite"></span><button type="button" data-prep-next>SIGUIENTE</button></footer>
+    </form></dialog>
+    <dialog id="next-briefing" class="collection-dialog" aria-labelledby="next-title"><p class="eyebrow">Capítulo 2 · Briefing</p><h2 id="next-title">La expedición interrumpida</h2><p data-operational-call></p><p><b>Objetivo:</b> solicitar los antecedentes del aviso y localizar documentación que permita investigar la procedencia del bastón.</p><p><b>Punto de partida:</b> consulta documental desde Torres Elebi. Antes de cualquier desplazamiento se presentarán destino, tareas y costes para asignar el equipo.</p><p>Solicita antecedentes, explora los expedientes y reconstruye la suspensión de la expedición. Podrás elegir entre una consulta ordinaria sin coste (12 horas) y una urgente (1.200 € y 3 horas). Después, cada nueva verificación de un hallazgo consume 2 horas de misión, aciertes o no; se pedirá confirmación antes de descontarlas.</p><a href="./escena2.html" class="transition-menu">ENTRAR EN LA SALA DE DOCUMENTACIÓN</a><button type="button" data-briefing-back>VOLVER A RECURSOS</button></dialog>
+    <script src="./riddles.js"></script>
     <script src="./jugar.js"></script>
-  </body>
+    <script src="./inventory.js"></script>
+    <script src="./map-puzzle.js"></script>
+  <script src="ambient.js"></script><script src="effects.js"></script></body>
 </html>
